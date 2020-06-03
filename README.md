@@ -36,9 +36,6 @@ cp ./dropbox_upload.sh /usr/local/bin/dropbox-upload-wpbackup
 2. SUDO 유저로 원격백업을 활성화하고, 크론탭에 등록합니다 
 <pre>
 <code>
-
-# 드롭박스 업로드 ( 최초 1회 연동 ) 
-
 # 드롭박스 API TOKEN을 연동합니다 ( 최초1회 ) 
 cd ~/
 dropbox_uploader
@@ -48,7 +45,7 @@ dropbox_uploader
 </code>
 </pre>
 3. 자체정책에 맞게 백업 / 업데이트를 크론탭에 등록합니다 
-- 아래는 새벽 4시에 로컬 및 원격 백업을  수행하는 크론탭 예제입니다 
+- 아래는 새벽 5시에 로컬 및 원격 백업을  수행하는 크론탭 예제입니다 
 <pre>
 <code>
 0 5 * * * wp-backup --remote-save >> ./log/`date +\%Y\%m\%d`.log 2>&1
