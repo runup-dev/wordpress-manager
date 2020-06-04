@@ -15,7 +15,7 @@
 
 # 사용방법
 
-1. SUDO 유저로 스크립트를 배포합니다 
+SUDO 유저로 스크립트를 배포합니다 
 <pre>
 <code>
 # 실행권한 부여 및 배포 
@@ -25,12 +25,12 @@ sudo cp ./recovery.sh /usr/local/bin/wp-recovery
 sudo cp ./update.sh /usr/local/bin/wp-update
 
 # dropbox upload 권한 조정 및 배포 
-sudo chmod 700 ./drobox_upload.sh
+sudo chmod 700 ./dropbox_upload.sh
 sudo cp ./dropbox_upload.sh /usr/local/bin/dropbox-upload-wpbackup
 </code>
 </pre>
 
-2. SUDO 유저로 원격백업을 활성화하고, 크론탭에 등록합니다 
+SUDO 유저로 원격백업을 활성화하고, 크론탭에 등록합니다 
 <pre>
 <code>
 # 드롭박스 API TOKEN을 연동합니다 ( 최초1회 ) 
@@ -41,25 +41,36 @@ dropbox_uploader
 0 * * * * dropbox-upload-wpbackup >> ./log/`date +\%Y\%m\%d`.log 2>&1
 </code>
 </pre>
-3. 자체정책에 맞게 백업 / 업데이트를 크론탭에 등록합니다 
-- 아래는 새벽 5시에 로컬 및 원격 백업을  수행하는 크론탭 예제입니다 
+
+사용자 계정으로 로그인하여 아래와 같이 관리스크립트를 실행 할 수 있습니다<br />
+로컬백업은  사용자계정 루트/backups 에 보관됩니다 
+
 <pre>
 <code>
-0 5 * * * wp-backup --remote-save >> ./log/`date +\%Y\%m\%d`.log 2>&1
+# 로컬백업
+wp-backup
+
+# 로컬백업 및 원격백업 
+wp-backup --remote-save
+
+# 복원
+wp-recovery
+
+# 업데이트
+wp-update
 </code>
 </pre>
-- 아래는 새벽 7시에 업데이트를 수행하는 크론탭 예제입니다
+
+아래는 자동화를 위한 크론탭 예젱입니다 
 <pre>
 <code>
+# 새벽 5시 로컬 및 원격백업
+0 5 * * * wp-backup --remote-save >> ./log/`date +\%Y\%m\%d`.log 2>&1
+
+# 새벽 7시 코어 / 테마 / 플러그인 업데이트
 0 7 * * * wp-update >> ./log/`date +\%Y\%m\%d`.log 2>&1
 </code>
 </pre>
 코어 / 테마 / 플러그인의 최신버전 유지는 워드프레스 권장사항이지만 예기치 않은 상황이 발생할 수 있습니다 미러사이트를 통해 완벽하게 테스트후 적용하시기를 권장드립니다 
 
-4. 복원이 필요한 경우 원하는 유저로 로그인하여 아래 코드를 실행합니다
-<pre>
-<code>
-wp-recovery
-</code>
-</pre>
 
