@@ -1,4 +1,7 @@
 #!/usr/bin/env bash
+
+# 워드프레스 유저 백업 스크립트 
+# Author. Runup Kim Tae Oh
 # Source: https://guides.wp-bullet.com
 # ref: https://guides.wp-bullet.com/automatically-back-wordpress-dropbox-wp-cli-bash-script/
 # ref: https://guides.wp-bullet.com/restoring-managewp-backup-with-wp-cli/

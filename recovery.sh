@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
-
+# 워드프레스 로컬백업 복원
+# Author Kim Tae Oh
 echo "1 : sql";
 echo "2 : file";
 

@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
-#dropboxUpload
+
+#드롭박스를 이용한 원격백업
 #author : runup. Kim Tae Oh
 #ref : https://guides.wp-bullet.com/automatically-back-wordpress-dropbox-wp-cli-bash-script/
 
