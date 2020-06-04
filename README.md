@@ -1,10 +1,7 @@
 # 소개
 워드프레스 호스팅 관리 스크립트 모음입니다 
-
 백업 / 복원 / 업데이트 스크립트로 구성되어 있습니다 
-
 로컬 / 리모트 백업은 모두 최근 일주일치만 보관합니다 
-
 이 정책은 일반 사용자에게 FTP접속을 허용하지 않은 경우로 권장합니다 
 
 # 시스템 요구사항 
@@ -22,14 +19,14 @@
 <pre>
 <code>
 # 실행권한 부여 및 배포 
-chmod 755 ./*.sh
-cp ./backup.sh /usr/local/bin/wp-backup
-cp ./recovery.sh /usr/local/bin/wp-recovery
-cp ./update.sh /usr/local/bin/wp-update
+sudo chmod 755 ./*.sh
+sudo cp ./backup.sh /usr/local/bin/wp-backup
+sudo cp ./recovery.sh /usr/local/bin/wp-recovery
+sudo cp ./update.sh /usr/local/bin/wp-update
 
 # dropbox upload 권한 조정 및 배포 
-chmod 700 ./drobox_upload.sh
-cp ./dropbox_upload.sh /usr/local/bin/dropbox-upload-wpbackup
+sudo chmod 700 ./drobox_upload.sh
+sudo cp ./dropbox_upload.sh /usr/local/bin/dropbox-upload-wpbackup
 </code>
 </pre>
 
